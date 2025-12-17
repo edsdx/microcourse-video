@@ -4,9 +4,11 @@ import requests
 from flask import Flask, render_template, request, send_file, jsonify
 from pptx import Presentation
 from PIL import Image, ImageDraw, ImageFont
-from moviepy.editor import (
-    ImageClip, AudioFileClip, CompositeVideoClip, concatenate_videoclips, VideoFileClip
-)
+from moviepy.video.VideoClip import ImageClip
+from moviepy.video.io.VideoFileClip import VideoFileClip
+from moviepy.audio.io.AudioFileClip import AudioFileClip
+from moviepy.video.compositing.CompositeVideoClip import CompositeVideoClip
+from moviepy.video.compositing.concatenate import concatenate_videoclips
 from pdf2image import convert_from_path
 import pyttsx3
 import subprocess
