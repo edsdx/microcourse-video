@@ -1,26 +1,29 @@
-# Flask核心依赖
+# ==================== 核心依赖 ====================
+# Flask + WSGI
 flask==3.1.2
 gunicorn==21.2.0
 
+# ==================== PPT/视频核心依赖 ====================
 # PPT解析
 python-pptx==1.0.2
 
 # 图片处理
 pillow==11.3.0
 
-# 视频合成
+# 视频合成（含所有子模块依赖）
 moviepy==2.2.1
+numpy==2.3.5          # moviepy核心依赖
+imageio==2.37.2       # moviepy读写视频/图片
+imageio-ffmpeg==0.6.0 # moviepy处理ffmpeg
+decorator==5.2.1      # moviepy装饰器依赖
+tqdm==4.67.1          # moviepy进度条依赖
+proglog==0.1.12       # moviepy日志依赖
 
 # 文字转语音
 pyttsx3==2.99
 
-# PDF转图片（可选）
+# PDF转图片（可选，若用到需保留）
 pdf2image==1.16.3
 
-# 网络请求（app.py中import requests必需）
+# 网络请求
 requests==2.31.0
-
-# 补充moviepy依赖的基础包（避免隐式缺失）
-numpy==2.3.5
-imageio==2.37.2
-imageio-ffmpeg==0.6.0
