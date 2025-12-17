@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>智能微课视频生成系统</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+<div class="max-w-6xl mx-auto py-8">
+    <h1 class="text-3xl font-bold text-center mb-2">
+        智能微课视频生成系统
+    </h1>
+    <p class="text-center text-gray-600 mb-8">
+        PPT → AI讲稿 → 语音 → 字幕 → 视频
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- 左侧参数区 -->
+        <form action="/generate" method="post" enctype="multipart/form-data"
+              class="bg-white p-6 rounded-xl shadow space-y-4">
+
+            <div>
+                <label class="block font-semibold mb-1">上传 PPT 文件</label>
+                <input type="file" name="ppt" required
+                       class="w-full border rounded p-2">
+            </div>
+
+            <div class="flex items-center space-x-2">
+                <input type="checkbox" name="use_actor" id="use_actor" checked>
+                <label for="use_actor">使用数字人讲解</label>
+            </div>
+
+            <div>
+                <label class="block font-semibold">数字人大小</label>
+                <input type="number" name="actor_size" value="260"
+                       class="w-full border rounded p-2">
+            </div>
+
+            <div>
+                <label class="block font-semibold">数字人位置 (x,y)</label>
+                <input type="text" name="actor_position" value="900,200"
+                       class="w-full border rounded p-2">
+            </div>
+
+            <button type="submit"
+                    class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold">
+                开始生成视频
+            </button>
+        </form>
+
+        <!-- 右侧说明区 -->
+        <div class="bg-white p-6 rounded-xl shadow">
+            <h2 class="font-bold text-lg mb-3">系统说明</h2>
+            <ul class="list-disc list-inside text-gray-700 space-y-2">
+                <li>自动解析 PPT 内容</li>
+                <li>调用大模型生成讲课稿</li>
+                <li>语音与字幕逐句同步</li>
+                <li>可选数字人辅助讲解</li>
+            </ul>
+            <div class="mt-4 text-sm text-gray-500">
+                提交课程设计 · 软件工程 / AI 工程实践
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
